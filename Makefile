@@ -1,5 +1,5 @@
 CC = g++
-CXXFLAGS = -std=c++11 -g -Wall -pg
+CXXFLAGS = -std=c++11 -g -Wall
 
 # folders
 INCLUDE_FOLDER = ./include/
@@ -19,7 +19,7 @@ EXE = $(BIN_FOLFER)main
 $(OBJ_FOLDER)%.o: $(SRC_FOLDER)%.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDE_FOLDER)
 
-all: comp
+all: comp run
 
 comp: $(OBJ) 
 	$(CC) $(CXXFLAGS) -o $(BIN_FOLFER)$(TARGET) $(OBJ)
