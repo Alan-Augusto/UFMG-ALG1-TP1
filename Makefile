@@ -28,7 +28,7 @@ clean:
 	clear
 
 run:
-	./bin/main
+	./bin/main ./input/CasoTeste.txt
 
 git:
 	git add .
