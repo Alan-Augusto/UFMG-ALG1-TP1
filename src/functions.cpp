@@ -21,3 +21,11 @@ char* lineArguments(int argc, char **argv, int x){
     }
     return argv[x];
 }
+
+void follower::fill(string line){
+    stringstream lineITvalues(line);
+        lineITvalues >> x1;
+        lineITvalues >> x2;
+        lineITvalues >> y1;
+        lineITvalues >> y2;
+}

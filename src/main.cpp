@@ -21,31 +21,30 @@ int main(int argc,char ** argv){
 
     //Recolhe as variáveis em cada linha e execura a função
     while(getline(InputFile, line)){
-        //Cria variável de iteração da linha
+        //Variável de iteração da linha
         stringstream lineITfirst(line);
 
         //Recolhe a primeira linha
         lineITfirst >> Numfollowers;
         lineITfirst >> Numproposals;
 
-        cout << Numfollowers << " | " << Numproposals << endl;
+        //Bloco temporários de cada rodada
+        follower followers[Numfollowers];
 
+        //Recolhe os valores de cada seguidor
         for(int i = 0; i < Numfollowers; i++){
             getline(InputFile, line);
-            stringstream lineITvalues(line);
-             int x1;
-             int x2;
-             int y1;
-             int y2;
+            
+            //Recolhe os valores do seguidor
+            follower person;
+            person.fill(line);
 
-             lineITvalues >> x1;
-             lineITvalues >> x2;
-             lineITvalues >> y1;
-             lineITvalues >> y2;
-
-             cout << x1 << " | " << x2 << " | " << y1 << " | " << y2 << endl;
-             
+            //Coloca o seguidor no vetor
+            followers[i] = person;
         }
+
+        //Verifica se a satisfabilidade
+        //satisfiabilityCheck(followers);
     }
 
     return 0;
