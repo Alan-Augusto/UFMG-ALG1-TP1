@@ -25,6 +25,9 @@ comp: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $(BIN_FOLFER)$(TARGET) $(OBJ)
 
 clean:
+	rm ./bin/main
+	rm ./obj/functions.o
+	rm ./obj/main.o
 	clear
 
 run:

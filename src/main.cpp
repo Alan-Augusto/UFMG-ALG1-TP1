@@ -9,7 +9,7 @@ using namespace std;
 int main(int argc,char ** argv){
 
     //Recolhe endereço do arquivo e confere os argumentos:
-    char *inputNameArq = lineArguments(argc, argv, 1);
+    char *inputNameArq = checkLineArguments(argc, argv, 1);
     
     //Variaveis principais
     ifstream InputFile(inputNameArq);
@@ -28,7 +28,10 @@ int main(int argc,char ** argv){
         lineITfirst >> Numfollowers;
         lineITfirst >> Numproposals;
 
-        //Bloco temporários de cada rodada
+        cout << Numfollowers << " Seguidores | ";
+        cout << Numproposals << " Propostas" << endl;
+
+        //Vetor temporários de cada rodada
         follower followers[Numfollowers];
 
         //Recolhe os valores de cada seguidor
@@ -36,8 +39,8 @@ int main(int argc,char ** argv){
             getline(InputFile, line);
             
             //Recolhe os valores do seguidor
-            follower person;
-            person.fill(line);
+            follower person(line);
+            //person.fill(line);
 
             //Coloca o seguidor no vetor
             followers[i] = person;

@@ -7,12 +7,14 @@ using namespace std;
 //GERAIS
 void sayHello();
 void Assert(bool x, string text);
-char* lineArguments(int argc, char **argv, int x);
+char* checkLineArguments(int argc, char **argv, int x);
 
 //CLASSES
 class follower{
     public:
-    
+        //Construtor
+        follower();
+        follower(string line);
         //Propostas aceitas
         int x1;
         int x2;
@@ -22,4 +24,12 @@ class follower{
 
         //Méthods
         void fill(string line);
+        void print();
+};
+
+class Graph{
+    public:
+        int nodes;
+        int edges;
+
 };
