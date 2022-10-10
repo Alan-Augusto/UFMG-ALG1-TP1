@@ -26,15 +26,15 @@
 //============================
 //_____FUNÇÕES DE CLASSES_____
 
-//=====FOLLOWER=====
+//=====Follower=====
     //Preenche um seguidor a partir de uma linha
-    follower::follower(){
+    Follower::Follower(){
         x1 = -1;
         x2 = -1;
         y1 = -1;
         y2 = -1;
     }
-    follower::follower(string line){
+    Follower::Follower(string line){
         stringstream lineITvalues(line);
             lineITvalues >> x1;
             lineITvalues >> x2;
@@ -42,7 +42,7 @@
             lineITvalues >> y2;
     }
 
-    void follower::print(){
+    void Follower::print(){
         cout << x1 << " | ";
         cout << x2 << " | ";
         cout << y1 << " | ";

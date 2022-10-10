@@ -3,6 +3,8 @@
 #include <sstream>
 #include <fstream>
 #include <functions.hpp>
+#include <sat.hpp>
+#include <graph.hpp>
 
 using namespace std;
 
@@ -32,14 +34,14 @@ int main(int argc,char ** argv){
         cout << Numproposals << " Propostas" << endl;
 
         //Vetor temporários de cada rodada
-        follower followers[Numfollowers];
+        Follower followers[Numfollowers];
 
         //Recolhe os valores de cada seguidor
         for(int i = 0; i < Numfollowers; i++){
             getline(InputFile, line);
             
             //Recolhe os valores do seguidor
-            follower person(line);
+            Follower person(line);
             //person.fill(line);
 
             //Coloca o seguidor no vetor
@@ -47,7 +49,7 @@ int main(int argc,char ** argv){
         }
 
         //Verifica se a satisfabilidade
-        //satisfiabilityCheck(followers);
+        satisfiabilityCheck(followers, Numfollowers, Numproposals);
     }
 
     return 0;

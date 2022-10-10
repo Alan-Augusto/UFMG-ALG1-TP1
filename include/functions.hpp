@@ -10,11 +10,11 @@ void Assert(bool x, string text);
 char* checkLineArguments(int argc, char **argv, int x);
 
 //CLASSES
-class follower{
+class Follower{
     public:
         //Construtor
-        follower();
-        follower(string line);
+        Follower();
+        Follower(string line);
         //Propostas aceitas
         int x1;
         int x2;

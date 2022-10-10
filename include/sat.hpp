@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <functions.hpp>
+#include <graph.hpp>
 
 using namespace std;
 
@@ -32,3 +34,19 @@ using namespace std;
             //Caso contrário
                 //É satisfazível
 
+//A chamada inicial recebe um vetor de seguidores e fazer uma árvore de busca com as intenções de cada uma das propostas
+void satisfiabilityCheck(Follower followers[], int Numfollowers, int Numproposals){
+    //TEste de grafo
+    Graph grafo(Numproposals);
+
+    grafo.addEdge(0, 1);
+	grafo.addEdge(0, 2);
+	grafo.addEdge(1, 3);
+	grafo.addEdge(1, 4);
+	grafo.addEdge(2, 5);
+	grafo.addEdge(2, 6);
+	grafo.addEdge(6, 7);
+	
+	grafo.dfs(5);
+    
+}
