@@ -28,6 +28,10 @@ int main(int argc,char ** argv){
         lineITfirst >> Numfollowers;
         lineITfirst >> Numproposals;
 
+        if(Numfollowers == 0 && Numproposals == 0){
+            exit(0);
+        }
+
         cout << Numfollowers << " Seguidores | ";
         cout << Numproposals << " Propostas" << endl;
 

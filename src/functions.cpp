@@ -65,7 +65,7 @@
     
     bool Graph::dfs(int v, int y){
         //int inityNode = v;
-        //cout << "Buscando " << y << " a partie de "<< v << endl;
+        //cout << "Buscando caminho" << v  << " --> "<< y << endl;
         stack<int> pilha;
         bool visitados[V]; // vetor de visitados
     
@@ -106,6 +106,7 @@
                 // se todos os vizinhos estão visitados ou não existem vizinhos
                 // remove da pilha
                 pilha.pop();
+                //cout << "Sem vizinhos -> volta um passo na pilha" << endl;
                 // se a pilha ficar vazia, então terminou a busca
                 if(pilha.empty())
                     break;

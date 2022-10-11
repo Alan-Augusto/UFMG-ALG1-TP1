@@ -16,7 +16,7 @@ void satisfiabilityCheck(Follower followers[], int Numfollowers, int Numproposal
 				if(followers[i].x2 != 0){
 					//Faz x2 ser verdade sempre
 					grafo.addEdge(neg(followers[i].x2, Numproposals), followers[i].x2);
-				}//Se x2 é 0
+				}//Se x2 tbm é 0
 				else{
 					break;
 				}
@@ -37,14 +37,34 @@ void satisfiabilityCheck(Follower followers[], int Numfollowers, int Numproposal
 			}
 
 		
-		//Para uma decisão (H v J) -> Para remover
-			//H -> ~J
-			//cout << "Se " << followers[i].y1 << " -> Não " << followers[i].y2 << endl;
-			grafo.addEdge(followers[i].y1, neg(followers[i].y2, Numproposals));
-
-			//J -> ~H	
-			//cout << "Se " << followers[i].y2 << " -> Não " << followers[i].y1 << endl;
-			grafo.addEdge(followers[i].y2, neg(followers[i].y1, Numproposals));	
+		//Para uma decisão (Y1 v Y2) -> Para remover
+			//Se Y1 é 0
+			if(followers[i].y1==0){
+				//Se y2 não é 0
+				if(followers[i].y2 != 0){
+					//Faz o y2 ser removido com certeza
+					//Y2 -> ~Y2
+					grafo.addEdge(followers[i].y2, neg(followers[i].y2, Numproposals));
+				}//Se y2 tbm é 0
+				else{
+					break;
+				}
+			}//Se y1 não é 0
+			else{
+				//Se y2 é 0
+				if(followers[i].y2 == 0){
+					//Faz o Y1 sempre ser removido
+					//Y1 -> ~Y1
+					grafo.addEdge(followers[i].y1, neg(followers[i].y1, Numproposals));
+				}//Se y2 não é 0
+				else{
+					//Segue logica normal
+					//Y1 -> ~Y2
+					grafo.addEdge(followers[i].y1, neg(followers[i].y2, Numproposals));
+					//Y2 -> ~Y1
+					grafo.addEdge(followers[i].y2, neg(followers[i].y1, Numproposals));
+				}
+			}
 	}
 	int x = 0;
 	for(int j = 1; j<Numproposals; j++){
