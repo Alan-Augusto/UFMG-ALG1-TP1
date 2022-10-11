@@ -2,9 +2,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include <functions.hpp>
 #include <sat.hpp>
-#include <graph.hpp>
 
 using namespace std;
 
