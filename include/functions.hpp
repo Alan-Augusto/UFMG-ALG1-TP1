@@ -3,11 +3,11 @@
 #include <sstream>
 #include <list>
 #include <stack>
+#include <fstream>
 
 using namespace std;
 
 //GERAIS
-void sayHello();
 void Assert(bool x, string text);
 char* checkLineArguments(int argc, char **argv, int x);
 int neg(int x, int tamNat);
@@ -17,16 +17,13 @@ class Follower{
     public:
         //Construtor
         Follower();
-        Follower(string line);
+        Follower(string line, int p);
         //Propostas aceitas
         int x1;
         int x2;
         //Propostas recusadas
         int y1;
         int y2;
-
-        //Methods
-        void print();
 };
 
 class Graph{
@@ -45,3 +42,6 @@ class Graph{
         //Faz DFS em busca de um vértice v.
         bool dfs(int v, int y);
 };
+
+//ALGORITMO CENTRAL DE SATISFAÇÃO --> 2-SA
+void satisfiabilityCheck(Follower followers[], int Numfollowers, int Numproposals);

@@ -1,16 +1,16 @@
-#include <sat.hpp>
-
-
+/*
 void satisfiabilityCheck(Follower followers[], int Numfollowers, int Numproposals){
     //Cria um grafo a partir do número de propostas
 		//Multiplicado por 2 pos os valores negativos serão as negações
-    bool satisfazivel = true;
 	Graph grafo(Numproposals*2+1);
 
+    bool satisfazivel = true;
+	
+	//Faz a tradução da pesquisa em um grafo relacionado
 	for(int i = 0; i < Numfollowers; i++){
 		//Para uma decisão (X1 v x2) -> Para manter
 
-			  //Se x1 é 0
+			//Se x1 é 0
 			if(followers[i].x1==0){
 				//Se x2 não é 0
 				if(followers[i].x2 != 0){
@@ -66,31 +66,24 @@ void satisfiabilityCheck(Follower followers[], int Numfollowers, int Numproposal
 				}
 			}
 	}
-	int x = 0;
+
+	//=#==#==#== 2-SAT =#==#==#==
+	//Para cada ma das propostas/literais/vertices
 	for(int j = 1; j<Numproposals; j++){
+		//Confere o DFS de "ida" e o de "volta" da proposta com sua negação
 		if(grafo.dfs(j, neg(j, Numproposals)) && grafo.dfs(neg(j, Numproposals), j)){
-			x = j;
+			//Se encontrar esses dois caminhos -> não é satisfazível
 			satisfazivel = false;
 			break;
 		}
 	}
 
+	//Impressão final
 	if(satisfazivel){
-		cout << "satisfazível" << endl;
+		cout << "sim" << endl;
 	}
 	else{
-		cout << "Não é satisfazível, pois existe caminho de " << x << " até " <<neg(x, Numproposals) << " e vice versa."<< endl;
+		cout << "nao" << endl;
 	}
-
-	/*
-    grafo.addEdge(0, 1);
-	grafo.addEdge(0, 2);
-	grafo.addEdge(1, 3);
-	grafo.addEdge(1, 4);
-	grafo.addEdge(2, 5);
-	grafo.addEdge(2, 6);
-	grafo.addEdge(6, 7);
-	
-	grafo.dfs(0, 7);
-    */
 }
+*/

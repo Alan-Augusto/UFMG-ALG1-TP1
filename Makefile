@@ -9,8 +9,8 @@ SRC_FOLDER = ./src/
 OUTPUT_FOLDER = ./output/
 
 # all sourcers, obs, and header files
-MAIN = main
-TARGET = main
+MAIN = tp01
+TARGET = tp01
 SRC = $(wildcard $(SRC_FOLDER)*.cpp)
 OBJ = $(patsubst $(SRC_FOLDER)%.cpp, $(OBJ_FOLDER)%.o, $(SRC))
 LOGDATE = $(shell date +"%b/%d at %kh:%Mm")
@@ -19,19 +19,19 @@ EXE = $(BIN_FOLFER)main
 $(OBJ_FOLDER)%.o: $(SRC_FOLDER)%.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDE_FOLDER)
 
-all: comp run
+all: comp
 
 comp: $(OBJ) 
-	$(CC) $(CXXFLAGS) -o $(BIN_FOLFER)$(TARGET) $(OBJ)
+	$(CC) $(CXXFLAGS) -o $(TARGET) $(OBJ)
 
 clean:
-	rm ./bin/main
+	rm tp01
 	rm ./obj/functions.o
 	rm ./obj/main.o
 	clear
 
 run:
-	./bin/main ./input/CasoTeste.txt
+	./tp01 ./input/CasoTeste.txt
 
 git:
 	git add .

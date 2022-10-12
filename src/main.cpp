@@ -1,8 +1,4 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <fstream>
-#include <sat.hpp>
+#include <functions.hpp>
 
 using namespace std;
 
@@ -24,16 +20,17 @@ int main(int argc,char ** argv){
         //Variável de iteração da linha
         stringstream lineITfirst(line);
 
-        //Recolhe a primeira linha
+        //Recolhe a primeira linha e confere
         lineITfirst >> Numfollowers;
         lineITfirst >> Numproposals;
 
-        if(Numfollowers == 0 && Numproposals == 0){
-            exit(0);
-        }
+        Assert((Numfollowers != 0 || Numproposals != 0), "");
 
-        cout << Numfollowers << " Seguidores | ";
-        cout << Numproposals << " Propostas" << endl;
+        Assert((Numfollowers<=1000 && Numfollowers >0), "Valor incorreto de 'S' (1 <= S <= 1000)");
+        Assert((Numproposals<=10000 && Numproposals >0), "Valor incorreto de 'P' (1 <= P <= 10000)");
+
+        //cout << Numfollowers << " Seguidores | ";
+        //cout << Numproposals << " Propostas" << endl;
 
         //Vetor temporários de cada rodada
         Follower followers[Numfollowers];
@@ -43,7 +40,7 @@ int main(int argc,char ** argv){
             getline(InputFile, line);
             
             //Recolhe os valores do seguidor
-            Follower person(line);
+            Follower person(line, Numproposals);
             //person.fill(line);
 
             //Coloca o seguidor no vetor
